@@ -5,15 +5,7 @@ export const registerUserValidator = Joi.object({
   fullName: Joi.string().required(),
   // firstName: Joi.string().required(),
   // surname: Joi.string().required(),
-  password: Joi.string()
-    .regex(
-      /^(?=.*[A-Za-z])(?=.*\d)[a-zA-Z0-9!@#$%^&*()~¥=_+}{":;'?/>.<,`\-\|\[\]]{6,50}$/,
-    )
-    .required()
-    .messages({
-      'string.pattern.base':
-        'Password must contain at least one number and at least 6 characters long',
-    }),
+  password: Joi.string().required(),
   phone: Joi.string().required(),
   country: Joi.string().required(),
   role: Joi.string().required(),
@@ -26,15 +18,7 @@ export const loginUserValidator = Joi.object({
 }).strict();
 
 export const resetPasswordValidator = Joi.object({
-  password: Joi.string()
-    .regex(
-      /^(?=.*[A-Za-z])(?=.*\d)[a-zA-Z0-9!@#$%^&*()~¥=_+}{":;'?/>.<,`\-\|\[\]]{6,50}$/,
-    )
-    .required()
-    .messages({
-      'string.pattern.base':
-        'Password must contain at least one number and at least 6 characters long',
-    }),
+  password: Joi.string().required(),
   confirmPassword: Joi.string()
     .valid(Joi.ref('password'))
     .required()
